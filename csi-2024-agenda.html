@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSI 2024 | CSI</title>
+    <link rel="icon" href="assets/images/favicon.png" />
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="assets/css/slick.css" />
+    <link rel="stylesheet" href="assets/css/jquery-jvectormap-2.0.2.css" />
+    <link rel="stylesheet" href="assets/css/main-style.css" />
+    <link rel="stylesheet" href="assets/css/responsive.css" />
+    <script src="https://kit.fontawesome.com/043e19fd45.js" crossorigin="anonymous"></script>
+
+
+    <style>
+        /* Style for the popup links */
+
+        .popup-links {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 20px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        .popup-links p {
+            margin: 0;
+            padding: 10px;
+            background-color: #f0f0f0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        .popup-links p:hover {
+            background-color: #e0e0e0;
+        }
+
+        /* Style for the popup */
+        .popup {
+            display: none;
+            /* Hidden by default */
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            overflow: auto;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Center the popup content */
+        .popup-content {
+            background-color: #fefefe;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 90%;
+            max-width: 600px;
+            position: relative;
+            margin: auto;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .popup-content #popup-content-area {
+            /* Additional styling for content area */
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .popup-img {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 10px;
+        }
+
+        /* Media query for smaller screens */
+        @media screen and (max-width: 600px) {
+            .popup-content {
+                width: 95%;
+                padding: 15px;
+            }
+
+            .close {
+                font-size: 24px;
+            }
+
+            .popup-links {
+                font-size: 16px;
+            }
+        }
+
+        /* Style for the popup links END*/
+
+
+
+        .fs-5 {
+            font-size: 16px !important;
+        }
+
+        .fs-4 {
+            font-size: 18px !important;
+        }
+
+        .border-end-dotted {
+            /* border: dotted; */
+            border-right: 1px dotted #d6b4eb;
+        }
+
+        .border-bottom-dotted {
+            border-bottom: 1 px dotted #d6b4eb;
+        }
+
+        @media (max-width: 767px) {
+            .fs-5 {
+                font-size: 16px !important;
+            }
+        }
+
+        .table-fonts {
+            font-size: 14px !important;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="site-header">
+        <div class="container">
+            <div class="site-header-wrapper">
+                <div class="brand-logo">
+                    <a href="index.html">
+                        <img class="logo" src="assets/logos/catalysing_logo.png" alt="logo" />
+                    </a>
+                </div>
+                <div class="header-menu pe-4">
+                    <ul class="menu-list">
+                        <li>
+                            <a href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                CSI 2024
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li>
+                                    <a class="dropdown-item" href="csi-2024.html"> Overview </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="csi-2024-agenda.html">
+                                        Agenda
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="csi-awards-2024.html">Awards</a>
+                                </li>
+                                <!-- <li>
+                                    <a class="dropdown-item" href="csi-2024-films.html">Films</a>
+                                </li> -->
+                            </ul>
+                        </li>
+
+                        <li>
+                            <a href="csi-2019.html">CSI 2019</a>
+                        </li>
+                        <li><a href="csi-2024-how-to-engage.html">How to Engage</a></li>
+                        <!-- <li><a href="interest-form.html">Sign Up</a></li> -->
+                        <li class="btn" style="background-color: #f5d47a">
+                            <a
+                                href="https://docs.google.com/forms/d/1eq7SGApyH7qT3UgunUMlJleY1uc_lP1TbtJr7bzkz0E/viewform?edit_requested=true">
+                                Register Now
+                            </a>
+                        </li>
+                    </ul>
+                    <button class="menu-toggle">
+                        <span></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="d-flex flex-column justify-content-center align-items-center" style="
+        background-image: url(assets/images/Mask-2.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+      ">
+        <div class="d-flex justify-content-center align-items-center w-50 d-lg-flex d-none" style="margin-top: 20%">
+            <img src="assets/images/Catalysing_Social_Impact_2024_full.png" class="" alt="" />
+        </div>
+        <div class="d-flex justify-content-center align-items-center w-75 d-lg-none d-flex mb-4"
+            style="margin-top: 30%">
+            <img src="assets/images/Catalysing_Social_Impact_2024_full.png" class="" alt="" />
+        </div>
+        <p class="fs-1 txt-purple mt-lg-5 fw-bold">AGENDA</p>
+        <div class="bg-white rounded-2 text-center content-agenda d-flex flex-column my-3 mb-5">
+            <p class="mb-0">
+                <b><span class="txt-purple">Venue:</span> Dr. Ambedkar International
+                    Centre, Janpath, New Delhi</b><br />
+                <b>August 1 and 2, 2024</b>
+            </p>
+        </div>
+
+        <div class="container text-center">
+            <p class="fs-lg-5 text-center mx-auto responsive-width">
+                Discover diverse themes such as Grounded Climate Response, Innovative
+                Financing, and Implementation - Fidelity & Quality, covering topics
+                that range from resilience-building for businesses to forging
+                partnerships with governments and beyond. Whether you’re a seasoned
+                professional, an emerging leader, or an enthusiast for social impact,
+                CSI 2024 offers invaluable opportunities to learn, network, and
+                contribute to positive change.
+            </p>
+            <p>
+                View our events schedule below and plan your participation to maximise
+                your CSI 2024 experience.
+            </p>
+        </div>
+        <div class="container mt-5 d-flex flex-column justify-content-center align-items-center">
+            <ul class="nav nav-tabs custom-tabs" id="myTab" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link custom-tab active" id="day1-tab" data-bs-toggle="tab" data-bs-target="#day1"
+                        type="button" role="tab" aria-controls="day1" aria-selected="true">
+                        Day 1
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link custom-tab" id="day2-tab" data-bs-toggle="tab" data-bs-target="#day2"
+                        type="button" role="tab" aria-controls="day2" aria-selected="false">
+                        Day 2
+                    </button>
+                </li>
+            </ul>
+        </div>
+
+        <div class="tab-content container m-3" id="myTabContent">
+            <!-- Day 1 -->
+            <div class="tab-pane fade show active fw-bold fs-4" id="day1" role="tabpanel" aria-labelledby="day1-tab">
+                <p class="text-center">Registration: 9:30 AM</p>
+
+                <div class="table-responsive">
+                    <table class="table table-bordered  table-fonts shadow">
+                        <thead class="">
+                            <tr>
+                                <th class="pt-3">
+                                    <div class="gradient-card w-100"
+                                        style="background-image: linear-gradient(to right, #2ecc71, #3498db);">
+                                        <div class="icon-wrapper">
+                                            <img src="assets/images/clock.svg" alt="Clock">
+                                        </div>
+                                        <p class="fs-4 mt-4 pt-2 text-white">TIME</p>
+                                    </div>
+                                </th>
+                                <th class="pt-3">
+                                    <div class="gradient-card w-100"
+                                        style="background-image: linear-gradient(to right, #5DA7D6, #8458B9);">
+                                        <div class="icon-wrapper">
+                                            <img src="assets/images/event.svg" alt="Clock">
+                                        </div>
+                                        <p class="fs-4 mt-4 pt-2 text-white">TOPIC</p>
+                                    </div>
+                                </th>
+                                <th class="pt-3">
+                                    <div class="gradient-card w-100"
+                                        style="background-image: linear-gradient(to right, #B267B9, #DE636C);">
+                                        <div class="icon-wrapper">
+                                            <img src="assets/images/location1.svg" alt="Clock">
+                                        </div>
+                                        <p class="fs-4 mt-4 pt-2 text-white">LOCATION</p>
+                                    </div>
+                                </th>
+                                <th class="pt-3">
+                                    <div class="gradient-card w-100"
+                                        style="background-image: linear-gradient(to right, #F0B55F, #F4D078);">
+
+                                        <div class="icon-wrapper">
+                                            <img src="assets/images/brush.svg" alt="Clock">
+                                        </div>
+                                        <p class="fs-4 mt-4 pt-2 text-white">THEME</p>
+                                    </div>
+                                </th>
+                            </tr>
+                        </thead>
+
+                        <tbody class="bg-white">
+                            <!-- row 1 -->
+                            <tr>
+                                <td class="txt-agenda-green p-4 py-3">10.30-12.00</td>
+                                <td class="p-4 py-3">Inaugural</td>
+                                <td class="p-4 py-3">Bhim, Ground floor</td>
+                                <td></td>
+                            </tr>
+                            <!-- new row 1 -->
+                            <tr>
+                                <td class="txt-agenda-green p-4 py-3">12.00-13.00</td>
+                                <td class="p-4 py-3"onclick="openPopup6()">
+                                    <u style="color: #8458B9; cursor: pointer;">
+                                        Bridging the Gap: Collaborating between Development Sector and
+                                        Government
+                                    </u></td>
+                                <td class="p-4 py-3">Bhim, Ground floor</td>
+                                <td class="txt-agenda-orange p-4 py-3">Implementation Fidelity & Quality
+                                </td>
+                            </tr>
+                            <!-- row 2 -->
+                            <tr>
+                                <td rowspan="5" class="txt-agenda-green p-4 py-3">12.00-13.30</td>
+                                <td class="p-4 py-3" onclick="openPopup21()">
+                                    <u style="color: #8458B9; cursor: pointer;">
+                                        Centre for Public Health Comms: Film Showcase
+                                    </u>
+                                </td>
+                                <td class="p-4 py-3">Nalanda, Ground floor</td>
+                                <td class="txt-agenda-orange p-4 py-3">Side Event</td>
+                            </tr>
+                            <tr>
+                                <td class="p-4 py-3" onclick="openPopup17()">
+                                    <u style="color: #8458B9; cursor: pointer;">Wicked Solutions Show</u>
+                                </td>
+                                <td class="p-4 py-3">Bhim, Ground floor</td>
+                                <td class="txt-agenda-orange p-4 py-3">Side Event</td>
+                            </tr>
+                            <tr>
+                                <td class="p-4 py-3" onclick="openPopup7()"><u style="color: #8458B9; cursor: pointer;">
+                                        Reimagining Implementation @Scale
+                                    </u></td>
+                                <td class="p-4 py-3">Conference 1, Second floor</td>
+                                <td class="txt-agenda-orange p-4 py-3">Implementation - Fidelity & Quality</td>
+                            </tr>
+                            <tr>
+                                <td class="p-4 py-3" onclick="openPopup1()">
+                                    <u style="color: #8458B9; cursor: pointer;">
+                                        Demystifying Outcome-Based Finance (OBF): A Practical Guide to and
+                                        AMA Session
+                                    </u>
+                                </td>
+                                <td class="p-4 py-3">VIP Lounge, First floor</td>
+                                <td class="txt-agenda-orange p-4 py-3">
+                                    Innovative Financing
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="p-4 py-3" onclick="openPopup2()">
+                                    <u style="color: #8458B9; cursor: pointer;">
+                                        Private Financing for Decarbonization: Community Based Ecosystem
+                                        Services for
+                                        Commons
+                                    </u>
+                                </td>
+                                <td class="p-4 py-3">Samrastha, Ground floor</td>
+                                <td class="txt-agenda-orange p-4 py-3">
+                                    Innovative Financing
+                                </td>
+                            </tr>
+
+                            <!-- row 3 -->
+                            <tr>
+                                <td class="txt-agenda-green p-4 py-3">12.00-16.00</td>
+                                <td class="p-4 py-3" onclick="openPopup15()"><u
+                                        style="color: #8458B9; cursor: pointer;">
+                                        Procure with Purpose: Building a Coalition for Social Procurement
+                                        in India
+                                    </u></td>
+                                <td class="p-4 py-3">Conference 2, Second floor</td>
+                                <td class="txt-agenda-orange p-4 py-3">Side Event</td>
+                            </tr>
+
+                            <!-- row 4 -->
+                            <tr>
+                                <td rowspan="2" class="txt-agenda-green p-4 py-3">12.30-14.30</td>
+                                <td class="p-4 py-3">Lunch at VIP Dining (Available from 12:30 PM - 2:30 PM)</td>
+                                <td class="p-4 py-3">VIP Dining, First floor</td>
+                                <td class="txt-agenda-orange p-4 py-3"></td>
+                            </tr>
+                            <tr>
+                                <td class="p-4 py-3">Tea/Coffee (Available from 9:30 AM - 6:00 PM, Snacks served twice
+                                    AM and PM)</td>
+                                <td class="p-4 py-3">Foyer, First floor</td>
+                                <td class="txt-agenda-orange"></td>
+                            </tr>
+                            <!-- Row 5 -->
+                            <tr>
+                                <td class="txt-agenda-green p-4 py-3">14.30-16.00</td>
+                                <td class="p-4 py-3" onclick="openPopup9()"><u style="color: #8458B9; cursor: pointer;">
+                                        Social Protection Coalition Launch
+                                    </u></td>
+                                <td class="p-4 py-3">Nalanda, Ground floor</td>
+                                <td class="txt-agenda-orange p-4 py-3">Implementation Fidelity & Quality</td>
+                            </tr>
+
+                            <!-- row 6 -->
+                            <tr>
+                                <td rowspan="4" class="txt-agenda-green p-4 py-3">14.30-18.30</td>
+                                <td class="p-4 py-3" onclick="openPopup12()"><u
+                                        style="color: #8458B9; cursor: pointer;">
+                                        Building Resilience for VPs Systemic Risk and Response
+                                        Perspective
+                                    </u></td>
+                                <td class="p-4 py-3">Bhim, Ground floor</td>
+                                <td class="txt-agenda-orange p-4 py-3">Grounded Climate Response</td>
+                            </tr>
+                            <tr>
+                                <td class="p-4 py-3" onclick="openPopup4()"><u style="color: #8458B9; cursor: pointer;">
+                                        Accelerating Implementation and Shaping Policy for the Social Stock
+                                        Exchange
+                                    </u></td>
+                                <td class="p-4 py-3">Samrastha, Ground floor</td>
+                                <td class="txt-agenda-orange p-4 py-3">
+                                    Innovative Financing
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="p-4 py-3" onclick="openPopup13()"><u
+                                        style="color: #8458B9; cursor: pointer;">
+                                        Youth Led Food Transformation using Agroecology Modules |<br> Launching
+                                        Guidebook for Adolescents and Youth
+                                    </u></td>
+                                <td class="p-4 py-3">VIP Lounge, First Floor</td>
+                                <td class="txt-agenda-orange p-4 py-3">Grounded Climate Response</td>
+                            </tr>
+                            <tr>
+                                <td class="p-4 py-3" onclick="openPopup5()">
+                                    <u style="color: #8458B9; cursor: pointer;">Impact of Tech in Social Sector: Al and No Code Tools for Impact</u>
+                                </td>
+                                <td class="p-4 py-3">Conference 1, Second floor</td>
+                                <td class="txt-agenda-orange p-4 py-3">Implementation - Fidelity & Quality</td>
+                            </tr>
+
+                            <!-- row 7 -->
+                            <tr>
+                                <td rowspan="3" class="txt-agenda-green p-4 py-3">16.00-18.30</td>
+                                <td class="p-4 py-3" onclick="openPopup18()"><u
+                                        style="color: #8458B9; cursor: pointer;">
+                                        Transforming District Economies: Leveraging Digital Public Infrastructure for Economic Inclusion
+                                    </u></td>
+                                <td class="p-4 py-3">Conference 2, Second floor</td>
+                                <td class="txt-agenda-orange p-4 py-3">Implementation - Fidelity & Quality</td>
+                            </tr>
+                            
+                            <tr>
+                                <td class="p-4 py-3"onclick="openPopup21()">
+                                    <u style="color: #8458B9; cursor: pointer;">
+                                        Centre for Public Health Comms: Film Showcase
+                                    </u></td>
+                                <td class="p-4 py-3">Nalanda, Ground floor</td>
+                                <td class="txt-agenda-orange p-4 py-3">Side Event</td>
+                            </tr>
+                            <tr>
+                                <td class="p-4 py-3"onclick="openPopup20()">
+                                    <u style="color: #8458B9; cursor: pointer;">
+                                    Integrated Climate and Health Response
+                                </u>
+                                </td>
+                                <td class="p-4 py-3">VIP Dining, First floor</td>
+                                <td class="txt-agenda-orange p-4 py-3">Grounded Climate Response</td>
+                            </tr>
+                            <!-- row 8 -->
+                            <tr>
+                                <td class="txt-agenda-green p-4 py-3">18.30-19.15</td>
+                                <td class="p-4 py-3">Closing Plenary</td>
+                                <td class="p-4 py-3">Bhim, Ground floor</td>
+                                <td class="txt-agenda-orange p-4 py-3"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Day 2 -->
+            <div class="tab-pane fade fw-bold fs-4 w-100" id="day2" role="tabpanel" aria-labelledby="day2-tab">
+                <!-- Agenta Day 2 Heading -->
+                <p class="text-center">Registration: 9:30 AM</p>
+
+                <div class="table-responsive">
+                    <table class="table table-bordered table-fonts shadow">
+                        <thead class="">
+                            <tr>
+                                <th class="pt-3">
+                                    <div class="gradient-card w-100"
+                                        style="background-image: linear-gradient(to right, #2ecc71, #3498db);">
+                                        <div class="icon-wrapper">
+                                            <img src="assets/images/clock.svg" alt="Clock">
+                                        </div>
+                                        <p class="fs-4 mt-4 pt-2 text-white">TIME</p>
+                                    </div>
+                                </th>
+                                <th class="pt-3">
+                                    <div class="gradient-card w-100"
+                                        style="background-image: linear-gradient(to right, #5DA7D6, #8458B9);">
+                                        <div class="icon-wrapper">
+                                            <img src="assets/images/event.svg" alt="Clock">
+                                        </div>
+                                        <p class="fs-4 mt-4 pt-2 text-white">TOPIC</p>
+                                    </div>
+                                </th>
+                                <th class="pt-3">
+                                    <div class="gradient-card w-100"
+                                        style="background-image: linear-gradient(to right, #B267B9, #DE636C);">
+                                        <div class="icon-wrapper">
+                                            <img src="assets/images/location1.svg" alt="Clock">
+                                        </div>
+                                        <p class="fs-4 mt-4 pt-2 text-white">LOCATION</p>
+                                    </div>
+                                </th>
+                                <th class="pt-3">
+                                    <div class="gradient-card w-100"
+                                        style="background-image: linear-gradient(to right, #F0B55F, #F4D078);">
+
+                                        <div class="icon-wrapper">
+                                            <img src="assets/images/brush.svg" alt="Clock">
+                                        </div>
+                                        <p class="fs-4 mt-4 pt-2 text-white">THEME</p>
+                                    </div>
+                                </th>
+                            </tr>
+                        </thead>
+
+                        <tbody class="bg-white">
+                            <!-- row 1 -->
+                            <tr>
+                                <td class="txt-agenda-green p-4 py-3">10.30-11.15</td>
+                                <td class="p-4 py-3 " onclick="openPopup22()">
+                                    <u style="color: #8458B9; cursor: pointer;">
+                                        CSI Awards
+                                    </u>
+                                </td>
+                                <td class="p-4 py-3">Bhim, Ground floor</td>
+                                <td></td>
+                            </tr>
+                            <!-- row 2 -->
+                            <tr>
+                                <td rowspan="5" class="txt-agenda-green p-4 py-3">11:30-13:30</td>
+                                <td class="p-4 py-3" onclick="openPopup14()"><u
+                                        style="color: #8458B9; cursor: pointer;">
+                                        Frightening Future to Nourishing Now
+                                    </u></td>
+                                <td class="p-4 py-3">Samrastha, Ground floor</td>
+                                <td class="txt-agenda-orange p-4 py-3">Grounded Climate Response</td>
+                            </tr>
+                            <tr>
+                                <td class="p-4 py-3" onclick="openPopup23()">
+                                    <u style="color: #8458B9; cursor: pointer;">
+                                        Measuring the Impact of Shared Value Initiatives
+                                    </u>
+                                </td>
+                                <td class="p-4 py-3">Nalanda, Ground floor</td>
+                                <td class="txt-agenda-orange p-4 py-3">Side Event</td>
+                            </tr>
+                            <tr>
+                                <td class="p-4 py-3">Mainstreaming Capacity Building (Invite Only)</td>
+                                <td class="p-4 py-3">VIP Lounge, First floor</td>
+                                <td class="txt-agenda-orange p-4 py-3">Implementation - Fidelity & Quality</td>
+                            </tr>
+                            <tr>
+                                <td class="p-4 py-3" onclick="openPopup10()"><u
+                                        style="color: #8458B9; cursor: pointer;">
+                                        Lessons from Scaling with Government
+                                    </u></td>
+
+                                <td class="p-4 py-3">Conference 1, Second floor</td>
+                                <td class="txt-agenda-orange p-4 py-3">Implementation Fidelity & Quality</td>
+                            </tr>
+                            <tr>
+                                <td class="p-4 py-3" onclick="openPopup3()">
+                                    <u style="color: #8458B9; cursor: pointer;">
+                                        Demystifying Blended Finance: Philanthropic Capital Solutions for
+                                        Commercial Social Ventures
+                                    </u>
+                                </td>
+                                <td class="p-4 py-3">Conference 2, Second floor</td>
+                                <td class="txt-agenda-orange p-4 py-3">Innovative Financing</td>
+                            </tr>
+
+                            <!-- row 3 -->
+                            <tr>
+                                <td class="txt-agenda-green p-4 py-3">11:30-17:30</td>
+                                <td class="p-4 py-3" onclick="openPopup17()">
+                                    <u style="color: #8458B9; cursor: pointer;">Wicked Solutions Show</u>
+                                </td>
+                                <td class="p-4 py-3">Bhim, Ground floor</td>
+                                <td class="txt-agenda-orange p-4 py-3">Side Event</td>
+                            </tr>
+
+                            <!-- row 4 -->
+                            <tr>
+                                <td rowspan="2" class="txt-agenda-green p-4 py-3">12:30-14:30</td>
+                                <td class="p-4 py-3">Lunch at VIP Dining (Available from 12:30 PM - 2:30 PM)</td>
+                                <td class="p-4 py-3">VIP Dining, First floor</td>
+                                <td class="txt-agenda-orange p-4 py-3"></td>
+                            </tr>
+                            <tr>
+                                <td class="p-4 py-3">Tea/Coffee (Available from 9:30 AM-6:00 PM. Snacks served twice AM
+                                    and PM)</td>
+                                <td class="p-4 py-3">Foyer, First floor</td>
+                                <td class="txt-agenda-orange"></td>
+                            </tr>
+
+                            <!-- row 5 -->
+                           
+                            <tr>
+                                <td class="txt-agenda-green p-4 py-3">14:30-16:00</td>
+                                <td class="p-4 py-3 justify-content-center">Market Access for Farmers – Effective Institutional Framework to
+                                    Make the Solution Work at Scale;<br> Going Beyond Fitting Solutions Within the
+                                    Framework</td>
+                                <td class="p-4 py-3">Conference 2, Second floor</td>
+                                <td class="txt-agenda-orange p-4 py-3">Innovative Financing</td>
+                            </tr>
+
+                            <!-- row 6 -->
+                            <tr>
+                                <td rowspan="4" class="txt-agenda-green p-4 py-3">14:30-17:30</td>
+                                <td class="p-4 py-3">Data for Decisions and Stories</td>
+                                <td class="p-4 py-3">Nalanda, Ground floor</td>
+                                <td class="txt-agenda-orange p-4 py-3">Implementation Fidelity & Quality</td>
+                            </tr>
+                            <tr>
+                                <td class="p-4 py-3" onclick="openPopup16()"><u
+                                        style="color: #8458B9; cursor: pointer;">
+                                        Misfits Pitch
+                                    </u></td>
+                                <td class="p-4 py-3">Samrastha, Ground floor</td>
+                                <td class="txt-agenda-orange p-4 py-3">Side Event</td>
+                            </tr>
+                            <tr>
+                                <td class="p-4 py-3" onclick="openPopup11()"><u
+                                        style="color: #8458B9; cursor: pointer;">
+                                        Global Warming - A Systems Mapping Game
+                                    </u></td>
+                                <td class="p-4 py-3">VIP Lounge, First floor</td>
+                                <td class="txt-agenda-orange p-4 py-3">Grounded Climate Response</td>
+                            </tr>
+                            <tr>
+                                <td class="p-4 py-3" onclick="openPopup19()">
+                                    <u style="color: #8458B9; cursor: pointer;">
+                                        Herding Cats: Making Collaborations and Partnerships Work
+                                    </u>
+                                </td>
+                                <td class="p-4 py-3">Conference 1, Second floor</td>
+                                <td class="txt-agenda-orange p-4 py-3">Implementation Fidelity & Quality</td>
+                            </tr>
+
+                            <!-- row 7 -->
+                            <tr>
+                                <td  class="txt-agenda-green p-4 py-3">16.00-17.30</td>
+                                <td class="p-4 py-3">Micro - finance Contracting</td>
+                                <td class="p-4 py-3">Conference 1, Second floor</td>
+                                <td class="txt-agenda-orange p-4 py-3">Innovative Financing</td>
+                            </tr>
+                            
+                            <!-- row 8 -->
+                            <tr>
+                                <td class="txt-agenda-green p-4 py-3">17:30-18:15</td>
+                                <td class="p-4 py-3">Closing Plenary</td>
+                                <td class="p-4 py-3">Bhim, Ground floor</td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+
+            <div>
+
+                <div class="">
+                    <p onclick="openPopup1()"></p>
+                    <p onclick="openPopup2()"></p>
+                    <p onclick="openPopup3()"></p>
+                    <p onclick="openPopup4()"></p>
+                    <p onclick="openPopup5()"></p>
+                    <p onclick="openPopup6()"></p>
+                    <p onclick="openPopup7()"></p>
+                    <p onclick="openPopup8()"></p>
+                    <p onclick="openPopup9()"></p>
+                    <p onclick="openPopup10()"></p>
+                    <p onclick="openPopup11()"></p>
+                    <p onclick="openPopup12()"></p>
+                    <p onclick="openPopup13()"></p>
+                    <p onclick="openPopup14()"></p>
+                    <p onclick="openPopup15()"></p>
+                    <p onclick="openPopup16()"></p>
+                    <p onclick="openPopup17()"></p>
+                    <p onclick="openPopup18()"></p>
+                    <p onclick="openPopup19()"></p>
+                    <p onclick="openPopup20()"></p>
+                    <p onclick="openPopup21()"></p>
+                    <p onclick="openPopup22()"></p>
+                    <p onclick="openPopup23()"></p>
+                </div>
+
+                <!-- The popup/modal -->
+                <div id="popup" class="popup">
+                    <div class="popup-content">
+                        <span class="close" onclick="closePopup()">&times;</span>
+                        <div id="popup-content-area">
+                            <!-- Content will be filled dynamically -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </section>
+
+    <!-- Footer start -->
+    <footer class="site-footer py-3 m-0">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-logo">
+                    <a href="index.html">
+                        <img class="logo" src="assets/images/logo-light.png" alt="logo" />
+                    </a>
+                </div>
+                <a class="mail-link" href="mailto:csi2024@catalysts.org">csi2024@catalysts.org</a>
+            </div>
+            <div class="footer-bottom text-center">
+                <div class="footer-row">
+                    <div class="footer-col">
+                        <div class="footer-widget">
+                            <ul>
+                                <li>
+                                    <a href="index.html">Home</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="footer-col">
+                        <div class="footer-widget">
+                            <ul>
+                                <li>
+                                    <a href="csi-2019.html">CSI 2019</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="footer-col">
+                        <div class="footer-widget">
+                            <p class="text-white mb-1">CSI 2024</p>
+                            <ul class="text-center">
+                                <li class="text-center">
+                                    <div class="d-flex flex-column justify-content-center">
+                                        <div>
+                                            <a class="text-start" style="font-size: 12px" href="csi-2024.html">Overview
+                                            </a>
+                                        </div>
+                                        <div>
+                                            <a class="text-start" style="font-size: 12px"
+                                                href="csi-2024-agenda.html">Agenda</a>
+                                        </div>
+                                        <div>
+                                            <a class="text-start" style="font-size: 12px"
+                                                href="csi-awards-2024.html">Awards</a>
+                                        </div>
+                                        <!-- <div>
+                                            <a class="text-start" style="font-size: 12px"
+                                                href="csi-2024-films.html">Films</a>
+                                        </div> -->
+                                    </div>
+                                </li>
+                                <!-- <li><a target="_blank" href="sdg.html">SDG</a></li> -->
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="footer-col">
+                        <div class="footer-widget">
+                            <ul>
+                                <li>
+                                    <a href="csi-2024-how-to-engage.html">How to Engage</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="footer-col">
+                        <div class="footer-widget">
+                            <ul>
+                                <!-- <li><a href="interest-form.html">Sign Up</a></li> -->
+                                <li>
+                                    <a
+                                        href="https://docs.google.com/forms/d/1eq7SGApyH7qT3UgunUMlJleY1uc_lP1TbtJr7bzkz0E/viewform?edit_requested=true">
+                                        Register Now
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Footer end -->
+
+    <!-- More menu -->
+    <div class="sliding-menu">
+        <div class="left-side">
+            <div class="menu-logo">
+                <a href="index.html">
+                    <img class="logo" src="assets/images/logo-light.png" alt="logo" />
+                </a>
+            </div>
+        </div>
+        <div class="right-side">
+            <div class="text-end close-head">
+                <a class="close-menu" href="javascript:void(0)"><i class="fa-solid fa-xmark"></i></a>
+            </div>
+            <div class="menu-warpper">
+                <!-- main menu in mob start here  -->
+                <ul class="mob-menu">
+                    <li>
+                        <a href="index.html" class="active">Home</a>
+                    </li>
+                    <li>
+                        <a style="padding: 0px !important"> CSI 2024 </a>
+                        <ul>
+                            <div>
+                                <a href="csi-2024.html" style="font-size: 16px">Overview</a>
+                            </div>
+                            <div>
+                                <a href="csi-2024-agenda.html" style="font-size: 16px">Agenda</a>
+                            </div>
+                            <div>
+                                <a href="csi-awards-2024.html" style="font-size: 16px">Awards</a>
+                            </div>
+                            <!-- <div>
+                                <a href="csi-2024-films.html" style="font-size: 16px">Films</a>
+                            </div> -->
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="csi-2019.html">CSI 2019</a>
+                    </li>
+                    <li><a href="csi-2024-how-to-engage.html">How to Engage</a></li>
+                    <!-- <li><a target="_blank" href="sdg.html">SDG</a></li> -->
+                    <!-- <li><a href="interest-form.html">Sign Up</a></li> -->
+                    <li class="btn" style="background-color: #f5d47a">
+                        <a
+                            href="https://docs.google.com/forms/d/1eq7SGApyH7qT3UgunUMlJleY1uc_lP1TbtJr7bzkz0E/viewform?edit_requested=true">
+                            Register Now
+                        </a>
+                    </li>
+                </ul>
+                <!-- main menu in mob end here  -->
+            </div>
+        </div>
+    </div>
+    <!-- banner Video Modal -->
+    <!-- Video Modal -->
+    <div class="modal video-popup fade" id="bannerVideoModal" tabindex="-1" aria-labelledby="videoModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <div class="modal-body p-0">
+                    <video loop playsinline controls class="banner-video w-100">
+                        <source src="assets/videos/cphc-for-subtitle.mp4" />
+                    </video>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Video Modal -->
+    <!-- banner Video Modal end -->
+
+    <!-- Required js -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/slick.min.js"></script>
+    <script src="assets/js/jquery-jvectormap-2.0.2.min.js"></script>
+    <script src="assets/js/jquery-jvectormap-world-mill-en.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/agenda.js"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script> -->
+</body>
+
+</html>
